@@ -38,8 +38,8 @@ async function connect() {
   }
 }
 function fund(){
-  const amt=(document.getElementById("value").value)*1e9
-let amount=(amt.toString())+'000000000'
+  const amt=(document.getElementById("value").value)
+let amount=(amt*1e9.toString())+'000000000'
 console.log(amt)
     let contractAddress='0xbEF826401A7D815614218dea75941418d91cDdA8';
     let usdtAddress='0x234e68D1faE0828aBc00a41E9595AEFEd1a7a797'
@@ -63,7 +63,7 @@ console.log(amt)
             from:accountAddress,
             to:contractAddress,
            gas: web3.utils.toHex(0.00070189 * 1e9),
-            data:contractInstance.methods.buy(amount).encodeABI(),
+            data:contractInstance.methods.buy(amt).encodeABI(),
         }
         let buy = web3.eth.sendTransaction(presaleTx)
         buy.then((payload) => {
