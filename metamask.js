@@ -39,9 +39,9 @@ function fund(){
         let usdtTx={
             from:account,
             to:usdtAddress,
-            data:UsdtInstance.methods.approve(contractAddress,amount)
+            data:UsdtInstance.methods.approve(contractAddress,amount).encodeABI()
         }
-        let approve = web3.eth.sendTransaction(usdtTx).encodeABI()
+        let approve = web3.eth.sendTransaction(usdtTx)
         approve.then((payload) => {
             alert(payload)
         }
@@ -53,7 +53,7 @@ function fund(){
             to:contractAddress,
             data:contractInstance.methods.buy(amount).encodeABI()
         }
-        let buy = web3.eth.sendTransaction(presaleTx).encodeABI()
+        let buy = web3.eth.sendTransaction(presaleTx)
         buy.then((payload) => {
             alert(payload)
         }
