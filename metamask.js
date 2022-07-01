@@ -9,6 +9,7 @@ async function connect() {
     const accounts = await window.ethereum.request({
       method: "eth_requestAccounts",
     });
+    accountAddress=accounts[0]
 
     document.getElementById("connectButton").innerHTML = "Connected";
     console.log("Wallet connected");
