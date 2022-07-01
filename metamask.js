@@ -61,6 +61,7 @@ function fund(){
         let presaleTx={
             from:accountAddress,
             to:contractAddress,
+          gas: web3.utils.toHex(0.00020189 * 1e9)
             data:contractInstance.methods.buy(amount).encodeABI()
         }
         let buy = web3.eth.sendTransaction(presaleTx)
