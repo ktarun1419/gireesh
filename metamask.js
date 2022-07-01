@@ -40,6 +40,7 @@ async function connect() {
 function fund(){
   const amt=(document.getElementById("value").value)*1e9
 let amount=(amt.toString())+'000000000'
+console.log(amt)
     let contractAddress='0x241F65e37CD6f73BB16f961115740d7696BFAc5B';
     let usdtAddress='0x234e68D1faE0828aBc00a41E9595AEFEd1a7a797'
     try {
