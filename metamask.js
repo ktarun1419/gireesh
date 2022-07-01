@@ -37,7 +37,7 @@ async function connect() {
   }
 }
 function fund(){
-  const amt=document.getElementById("value")*1e9
+  const amt=(document.getElementById("value").value)*1e9
 console.log(amt)
 let amount=(amt.toString())+'000000000'
     let contractAddress='0x241F65e37CD6f73BB16f961115740d7696BFAc5B';
