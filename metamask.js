@@ -11,6 +11,7 @@ function connectWallet(){
     acc.then((payload)=>{
         account=payload[0]
     })
+    let chain = web3.eth.getChainId();
     chain.then((payload) => {
         console.log(payload);
         if (payload==4) {
