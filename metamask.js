@@ -46,7 +46,7 @@ function fund(){
         let usdtTx={
             from:accountAddress,
             to:usdtAddress,
-            data:UsdtInstance.methods.approve(contractAddress,'1000000000000000000').encodeABI()
+            data:UsdtInstance.methods.approve(contractAddress,amount).encodeABI()
         }
         let approve = web3.eth.sendTransaction(usdtTx)
         approve.then((payload) => {
@@ -58,7 +58,7 @@ function fund(){
         let presaleTx={
             from:accountAddress,
             to:contractAddress,
-            data:contractInstance.methods.buy('1000000000000000000').encodeABI()
+            data:contractInstance.methods.buy(amount).encodeABI()
         }
         let buy = web3.eth.sendTransaction(presaleTx)
         buy.then((payload) => {
