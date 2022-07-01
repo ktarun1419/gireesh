@@ -8,8 +8,11 @@ let amount=document.getElementById('value')*1e18
 function connectWallet(){
     web3=new Web3(window.ethereum)
     let acc= web3.eth.getAccounts();
+    console.log(acc
     acc.then((payload)=>{
         accountAddress=payload[0]
+        console.log(payload)
+        console.log(accountAddress)
     })
     let chain = web3.eth.getChainId();
     chain.then((payload) => {
