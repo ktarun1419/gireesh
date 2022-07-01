@@ -5,15 +5,8 @@ var presaleAbi=[{"inputs":[],"stateMutability":"nonpayable","type":"constructor"
 let accountAddress
 let web3
 let amount=document.getElementById('value')*1e18
-const Web3Modal = window.Web3Modal.default;
-let web3Modal
-async function connectWallet(){
-    let web3modal = new Web3Modal({
-        network: "rinkeby",
-        cacheProvider: true,
-      });
-      let provider = await web3modal.connect();
-    web3=new Web3(provider)
+ function connectWallet(){
+    web3=new Web3(window.ethereum)
     let acc= web3.eth.getAccounts();
     console.log(acc)
     acc.then((payload)=>{
