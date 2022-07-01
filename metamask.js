@@ -4,6 +4,7 @@ var presaleAbi=[{"inputs":[],"stateMutability":"nonpayable","type":"constructor"
 let accountAddress
 let web3
 const amt=document.getElementById("value")*1e9
+console.log(amt)
 let amount=(amt.toString())+'000000000'
 async function connect() {
   if (typeof window.ethereum !== "undefined") {
