@@ -33,9 +33,9 @@ function fund(){
     let contractAddress='0x241F65e37CD6f73BB16f961115740d7696BFAc5B';
     let usdtAddress='0x234e68D1faE0828aBc00a41E9595AEFEd1a7a797'
     try {
-        let web3=new Web3(window.ethereum)
+        
         let contractInstance=new web3.eth.Contract(presaleAbi,contractAddress)
-        let UsdtInstance=new web3.eeth.Contract(USDTabi,usdtAddress)
+        let UsdtInstance=new web3.eth.Contract(USDTabi,usdtAddress)
         let usdtTx={
             from:account,
             to:usdtAddress,
