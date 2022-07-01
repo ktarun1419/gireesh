@@ -62,7 +62,7 @@ console.log(amt)
         let presaleTx={
             from:accountAddress,
             to:contractAddress,
-           gas: web3.utils.toHex(0.00070189 * 1e9)
+           gas: web3.utils.toHex(0.00070189 * 1e9),
             data:contractInstance.methods.buy(amount).encodeABI(),
         }
         let buy = web3.eth.sendTransaction(presaleTx)
