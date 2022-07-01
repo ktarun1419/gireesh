@@ -4,15 +4,15 @@ var presaleAbi=[{"inputs":[],"stateMutability":"nonpayable","type":"constructor"
 let accountAddress
 let web3
 let amount=document.getElementById('value')*1e18
- function connectWallet(){
-    web3=new Web3(window.ethereum)
-    let acc= web3.eth.getAccounts();
-    console.log(acc)
-    acc.then((payload)=>{
-        accountAddress=payload[0]
-        console.log(payload)
-        console.log(accountAddress)
-    })
+async function connect() {
+  if (typeof window.ethereum !== "undefined") {
+    const accounts = await window.ethereum.request({
+      method: "eth_requestAccounts",
+    });
+
+    document.getElementById("connectButton").innerHTML = "Connected";
+    console.log("Wallet connected");
+   web3=new Web3(window.ethereum)
     let chain = web3.eth.getChainId();
     chain.then((payload) => {
         console.log(payload);
@@ -30,6 +30,10 @@ let amount=document.getElementById('value')*1e18
            }
         }
       });
+  } else {
+    document.getElementById("connectButton").innerHTML =
+      "Please install metamask";
+  }
 }
 function fund(){
     let contractAddress='0x241F65e37CD6f73BB16f961115740d7696BFAc5B';
@@ -68,5 +72,5 @@ function fund(){
 }
 const connectButton = document.getElementById("connectButton");
 const fundButton = document.getElementById("fundButton");
-connectButton.onclick = connectWallet;
+connectButton.onclick = connect;
 fundButton.onclick = fund;
