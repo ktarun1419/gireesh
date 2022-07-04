@@ -51,7 +51,7 @@ console.log(amt)
         let usdtTx={
             from:accountAddress,
             to:usdtAddress,
-            data:UsdtInstance.methods.approve(contractAddress,amt2).encodeABI()
+            data:UsdtInstance.methods.approve(contractAddress,amount).encodeABI()
         }
         let approve = web3.eth.sendTransaction(usdtTx)
         approve.then((payload) => {
