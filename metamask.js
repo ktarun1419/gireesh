@@ -38,46 +38,44 @@ async function connect() {
   }
 }
 function fund(){
-  const amt=(document.getElementById("value").value)
-  let amt2=(amt*1e9.toString())+'0000000000'
-let amount=(amt*1e9.toString())+'000000000'
-console.log(amt)
-    let contractAddress='0x2705C297DFd4798716A26c78F873594A1c89D046';
-    let usdtAddress='0x234e68D1faE0828aBc00a41E9595AEFEd1a7a797'
-    try {
-        console.log(accountAddress)
-        let contractInstance=new web3.eth.Contract(presaleAbi,contractAddress)
-        let UsdtInstance=new web3.eth.Contract(USDTabi,usdtAddress)
-        let usdtTx={
-            from:accountAddress,
-            to:usdtAddress,
-            data:UsdtInstance.methods.approve(contractAddress,amount).encodeABI()
-        }
-        let approve = web3.eth.sendTransaction(usdtTx)
-        approve.then((payload) => {
-            alert(payload)
-          let presaleTx={
-            from:accountAddress,
-            to:contractAddress,
-           gas: web3.utils.toHex(0.00070189 * 1e9),
-            data:contractInstance.methods.buy(amount).encodeABI(),
-        }
-        let buy = web3.eth.sendTransaction(presaleTx)
-        buy.then((payload) => {
-            alert(payload)
-        }
-        ).catch((e) => {
+    const amt=(document.getElementById("value").value)
+    let amt2=(amt*1e9.toString())+'0000000000'
+  let amount=(amt*1e9.toString())+'000000000'
+  console.log(amt)
+      let contractAddress='0x2705C297DFd4798716A26c78F873594A1c89D046';
+      let usdtAddress='0x234e68D1faE0828aBc00a41E9595AEFEd1a7a797'
+      try {
+          console.log(accountAddress)
+          let contractInstance=new web3.eth.Contract(presaleAbi,contractAddress)
+          let UsdtInstance=new web3.eth.Contract(USDTabi,usdtAddress)
+          let usdtTx={
+              from:accountAddress,
+              to:usdtAddress,
+              data:UsdtInstance.methods.approve(contractAddress,amount).encodeABI()
+          }
+          let approve = web3.eth.sendTransaction(usdtTx)
+          approve.then((payload) => {
+              alert(payload)
+            let presaleTx={
+              from:accountAddress,
+              to:contractAddress,
+             gas: web3.utils.toHex(0.00070189 * 1e9),
+              data:contractInstance.methods.buy(amount).encodeABI(),
+          }
+          let buy = web3.eth.sendTransaction(presaleTx)
+          buy.then((payload) => {
+              alert(payload)
+          }
+          ).catch((e) => {
+              console.log(e)
+          })
+      }).catch((e) => {
+              console.log(e)
+          })
+        } catch (e) {
             console.log(e)
-        })
-    } catch (e) {
-        console.log(e)
+        }
     }
-        }
-        ).catch((e) => {
-            console.log(e)
-        })
-        
-}
 const connectButton = document.getElementById("connectButton");
 const fundButton = document.getElementById("fundButton");
 connectButton.onclick = connect;
