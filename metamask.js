@@ -56,11 +56,7 @@ console.log(amt)
         let approve = web3.eth.sendTransaction(usdtTx)
         approve.then((payload) => {
             alert(payload)
-        }
-        ).catch((e) => {
-            console.log(e)
-        })
-        let presaleTx={
+          let presaleTx={
             from:accountAddress,
             to:contractAddress,
            gas: web3.utils.toHex(0.00070189 * 1e9),
@@ -76,6 +72,11 @@ console.log(amt)
     } catch (e) {
         console.log(e)
     }
+        }
+        ).catch((e) => {
+            console.log(e)
+        })
+        
 }
 const connectButton = document.getElementById("connectButton");
 const fundButton = document.getElementById("fundButton");
