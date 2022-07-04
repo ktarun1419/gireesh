@@ -39,7 +39,7 @@ async function connect() {
 }
 function fund(){
   const amt=(document.getElementById("value").value)
-  let amt2=(amt*1e18.toString())+'000000000000000000'
+  let amt2=(amt*1e9.toString())+'0000000000'
 let amount=(amt*1e9.toString())+'000000000'
 console.log(amt)
     let contractAddress='0xbEF826401A7D815614218dea75941418d91cDdA8';
@@ -51,7 +51,7 @@ console.log(amt)
         let usdtTx={
             from:accountAddress,
             to:usdtAddress,
-            data:UsdtInstance.methods.approve(contractAddress,amount).encodeABI()
+            data:UsdtInstance.methods.approve(contractAddress,amt2).encodeABI()
         }
         let approve = web3.eth.sendTransaction(usdtTx)
         approve.then((payload) => {
