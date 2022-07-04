@@ -42,7 +42,7 @@ function fund(){
   let amt2=(amt*1e9.toString())+'0000000000'
 let amount=(amt*1e9.toString())+'000000000'
 console.log(amt)
-    let contractAddress='0xbEF826401A7D815614218dea75941418d91cDdA8';
+    let contractAddress='0x2705C297DFd4798716A26c78F873594A1c89D046';
     let usdtAddress='0x234e68D1faE0828aBc00a41E9595AEFEd1a7a797'
     try {
         console.log(accountAddress)
